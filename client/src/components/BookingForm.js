@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-// import {postBooking} from './'
+// import {postBooking} '
 
 
-const BookingForm = ({addBooking}) => {
+const BookingForm = ({addBooking, postBooking}) => {
 
     const [formData, setFormData] = useState({});
 
@@ -11,22 +11,22 @@ const BookingForm = ({addBooking}) => {
         setFormData(formData);
     }
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     postBooking(formData).then((data) => {
-    //         addBooking(data);
-    //     })
-    // }
+    const onSubmit = (e) => {
+        e.preventDefault();
+        postBooking(formData).then((data) => {
+            addBooking(data);
+        })
+    }
 
     return(
-       <form  id='bookings-form'>
-        {/* <form onSubmit={onSubmit} id='bookings-form'> */}
+    //    <form  id='bookings-form'>
+        <form onSubmit={onSubmit} id='bookings-form'>
            <h3>Add a new Booking</h3>
            <label>Guest Name:</label>
-           <input onChange={onChange} type='text' id='name' required></input>
+           <input onChange={onChange} type='text' id='guest_name' required></input>
 
             <label>Guest Email:</label>
-            <input onChange={onChange} type='text' id='email'></input>
+            <input onChange={onChange} type='text' id='guest_email'></input>
 
             <label>Checked in?</label>
 
@@ -36,7 +36,7 @@ const BookingForm = ({addBooking}) => {
             <label>Checked out</label>
             <input onChange={onChange} type='radio' id='checkedout' name='checkInStatus' value='false' checked></input>
 
-            <input type='submit' value='TRIAL' id='save'></input>
+            <input type='submit' value='Save' id='save'></input>
        </form>
     )
 
